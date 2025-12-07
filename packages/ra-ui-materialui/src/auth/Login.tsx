@@ -91,6 +91,9 @@ export const Login = (inProps: LoginProps) => {
                 </div>
                 {children}
             </Card>
+            <WelcomeMessage className={LoginClasses.welcomeMessage}>
+                Welcome to React-Admin
+            </WelcomeMessage>
         </Root>
     );
 };
@@ -112,6 +115,7 @@ export const LoginClasses = {
     card: `${PREFIX}-card`,
     avatar: `${PREFIX}-avatar`,
     icon: `${PREFIX}-icon`,
+    welcomeMessage: `${PREFIX}-welcomeMessage`,
 };
 
 const Root = styled('div', {
@@ -143,9 +147,28 @@ const Root = styled('div', {
     },
 }));
 
+const WelcomeMessage = styled('div', {
+    name: PREFIX,
+    overridesResolver: (props, styles) => styles.welcomeMessage,
+})(({ theme }) => ({
+    width: '100vw',
+    backgroundColor: '#C9423F',
+    color: '#FFFFFF',
+    textAlign: 'center',
+    fontSize: '3rem',
+    fontWeight: 400,
+    lineHeight: 1.2,
+    padding: '5rem 2rem',
+    marginTop: '2rem',
+    [theme.breakpoints.down('sm')]: {
+        fontSize: '2rem',
+        padding: '3rem 2rem',
+    },
+}));
+
 declare module '@mui/material/styles' {
     interface ComponentNameToClassKey {
-        RaLogin: 'root' | 'card' | 'avatar' | 'icon';
+        RaLogin: 'root' | 'card' | 'avatar' | 'icon' | 'welcomeMessage';
     }
 
     interface ComponentsPropsList {
