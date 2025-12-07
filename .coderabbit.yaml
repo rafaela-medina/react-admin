@@ -1,0 +1,16 @@
+review:
+  auto_review: true
+  auto_review_on:
+    - pull_request_opened
+    - pull_request_reopened
+    - pull_request_synchronize
+
+  review_level: deep
+  request_changes: true
+  summarize: true
+
+assist:
+  auto_assist: true
+
+chat:
+  enabled: true
